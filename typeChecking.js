@@ -59,6 +59,7 @@ function toBoolean (param) {
     return Boolean(param);
 };
 
+// пока не трогаю, надо переписать на JSON
 function toObj (keys, values) {
     const obj = {};
     for (let i = 0; i < keys.length; i += 1) {
