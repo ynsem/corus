@@ -80,8 +80,3 @@ function toNan () {
 function toUndef () {
     return undefined;
 };
-
-
-
-console.log(toBoolean());
-
