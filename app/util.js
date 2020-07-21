@@ -1,6 +1,6 @@
 'use strict';
 
-var Util = (function Util() {
+;(function Util() {
   // проверки типов
 
   var isStr = function isStr(param = '') {
@@ -86,7 +86,7 @@ var Util = (function Util() {
     return undefined;
   };
 
-  return {
+  window.util = {
     // проверка типов
     isStr,
     isNum,

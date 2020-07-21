@@ -1,2 +1,43 @@
-.main {
-  font-size: 50px; }
+.alert {
+  padding: 15px;
+  border: 1px solid #75da7d;
+  border-radius: 4px;
+  color: black;
+  background-color: #75da7d; }
+
+.alert-info {
+  border: 1px solid #8ca9fa;
+  background-color: #8ca9fa; }
+
+.alert-warning {
+  border: 1px solid #ffff9b;
+  background-color: #ffff9b; }
+
+.alert-danger {
+  border: 1px solid #ff7575;
+  background-color: #ff7575; }
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 25px;
+  width: 30px;
+  opacity: 0.3; }
+
+.close:hover {
+  opacity: 1; }
+
+.close:before,
+.close:after {
+  position: absolute;
+  left: 10px;
+  content: ' ';
+  height: 20px;
+  width: 2px;
+  background-color: black; }
+
+.close:before {
+  transform: rotate(45deg); }
+
+.close:after {
+  transform: rotate(-45deg); }

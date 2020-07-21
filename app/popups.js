@@ -1,48 +1,49 @@
-var link = document.querySelector(".writeus-link");
-var popup = document.querySelector(".modal-feedback");
-var close = document.querySelector(".modal-close");
-var username = popup.querySelector("[name=username]");
-var useremail = popup.querySelector("[name=useremail]");
-var usermessage = popup.querySelector("[name=usermessage]");
-var form = popup.querySelector("form");
+'use strict';
 
-link.addEventListener("click", function(evt) {
-    evt.preventDefault();
-    popup.classList.add("modal-feedback--show");
+// как передать сюда параметр из index ?
+(function Popups() {
+  var alert = document.createElement('div');
+  var close = document.createElement('div');
 
-    if (storage) {
-        useremail.value = storage;
-        username.focus();
-    } else {
-        username.focus();
-    }
-});
+  var setMessage = function setMessage(message) {
+    return message;
+  };
 
-close.addEventListener("click", function(evt) {
-    evt.preventDefault();
-    popup.classList.remove("modal-feedback--show");
-    popup.classList.remove("modal-feedback--error");
-});
+  // сюда нужна обработка "левых" значений
+  var setAlertType = function setAlertType(message) {
+    return message;
+  };
 
-form.addEventListener("submit", function(evt) {
-    if (!username.value || !useremail.value || !usermessage.value) {
-        evt.preventDefault();
-        popup.classList.remove("modal-feedback--error");
-        popup.offsetWidth = popup.offsetWidth;
-        popup.classList.add("modal-feedback--error");
-    } else {
-        if (isStorageSupport) {
-            localStorage.setItem("useremail", useremail.value);
-        }
-    }
-});
+  var closer = function closer() {
+    close.addEventListener('click', function (evt) {
+      alert.remove();
+    });
+  };
 
-window.addEventListener("keydown", function(evt) {
-    if (evt.keyCode === 27) {
-        evt.preventDefault();
-        if (popup.classList.contains("modal-feedback--show")) {
-            popup.classList.remove("modal-feedback--show");
-            popup.classList.remove("modal-feedback--error");
-        }
-    }
-});
+  var createAlert = function createAlert(alertType) {
+    alert.className = `alert ${setAlertType(alertType)}`;
+    alert.innerHTML = setMessage('Важное сообщение');
+    document.body.append(alert);
+
+    close.className = 'close';
+    alert.append(close);
+    closer();
+  };
+
+  // заглушки других вариантов, они не стилизуются
+  var customConfirm = function customConfirm() {
+    var question = window.confirm('Каков твой ответ?');
+    alert(question);
+  };
+
+  var customPrompt = function customPrompt() {
+    var question = window.prompt('Что хочешь вывести?');
+    alert(`Держи! ${question}`);
+  };
+
+  window.popups = {
+    createAlert,
+    customConfirm,
+    customPrompt,
+  };
+})();

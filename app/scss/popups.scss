@@ -1,3 +1,54 @@
-.main {
-  font-size: 50px;
+$success-color: #75da7d;
+$info-color: #8ca9fa;
+$warning-color: #ffff9b;
+$danger-color: #ff7575;
+
+
+.alert {
+  padding: 15px;
+  border: 1px solid $success-color;
+  border-radius: 4px;
+  color: black;
+  background-color: $success-color;
+}
+
+.alert-info {
+  border: 1px solid $info-color;
+  background-color: $info-color;
+}
+
+.alert-warning {
+  border: 1px solid $warning-color;
+  background-color: $warning-color;
+}
+
+.alert-danger {
+  border: 1px solid $danger-color;
+  background-color: $danger-color;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 25px;
+  width: 30px;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 10px;
+  content: ' ';
+  height: 20px;
+  width: 2px;
+  background-color: black;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
 }
