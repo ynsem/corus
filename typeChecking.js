@@ -81,3 +81,5 @@ function toNan () {
 function toUndef () {
     return undefined;
 };
+
+//фиктивный коммит
