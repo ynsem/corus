@@ -1,7 +1,6 @@
 'use strict';
 
-// как передать сюда параметр из index ?
-(function Popups() {
+;(function Popups() {
   var alert = document.createElement('div');
   var close = document.createElement('div');
 
