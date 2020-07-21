@@ -1,6 +1,6 @@
 'use strict';
 
-;(function Util() {
+var Util = (function Util() {
   // проверки типов
 
   var isStr = function isStr(param = '') {
@@ -39,7 +39,7 @@
     return false;
   };
 
-  var isUndef = function isUndef(param = '') {
+  var isUndef = function isUndef(param) {
     if (typeof param === 'undefined') {
       return true;
     }
@@ -47,7 +47,7 @@
   };
 
   var isObj = function isObj(param) {
-    if (typeof param === 'object' && param !== null) {
+    if (typeof param === 'object' && param !== null && !Array.isArray(param)) {
       return true;
     }
     return false;
@@ -86,7 +86,7 @@
     return undefined;
   };
 
-  window.util = {
+  return {
     // проверка типов
     isStr,
     isNum,
@@ -99,7 +99,7 @@
     toStr,
     toNum,
     toBoolean,
-    toObj,
+    // toObj,
     toNull,
     toNan,
     toUndef,

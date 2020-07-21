@@ -1,4 +1,4 @@
-console.log(window.util);
+console.log(Util);
 console.log(window.popups);
 // Popups.customConfirm();
 // Popups.customPrompt();
