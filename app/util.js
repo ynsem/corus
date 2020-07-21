@@ -105,5 +105,3 @@ var Util = (function Util() {
     toUndef,
   };
 })();
-
-console.log(Util);
